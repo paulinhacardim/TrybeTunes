@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// Questão 7 //
+// Questão 7
 class MusicCard extends React.Component {
   render() {
-    const { trackName, previewUrl
+    const {
+      previewUrl,
+      trackName,
+
     } = this.props;
 
     return (
       <div>
         <p>{trackName}</p>
-        <audio data-testid="audio-component" src="{previewUrl}" controls>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           {' '}
