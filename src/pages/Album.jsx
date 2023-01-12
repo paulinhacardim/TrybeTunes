@@ -48,8 +48,9 @@ class Album extends React.Component {
         {music.length !== 0 && (music.map((music1) => (
           <MusicCard
             key={ music1.trackName }
-            trackName={ music1.trackName }
-            previewUrl={ music1.previewUrl }
+            // trackName={ music1.trackName }
+            // previewUrl={ music1.previewUrl }
+            music={ music1 }
           />
 
         ))) }
@@ -60,8 +61,8 @@ class Album extends React.Component {
 }
 
 Album.propTypes = {
-  new: PropTypes.shape({
-    parametro: PropTypes.shape({
+  match: PropTypes.shape({
+    params: PropTypes.shape({
       id: PropTypes.string,
     }),
   }),

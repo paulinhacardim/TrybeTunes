@@ -57,7 +57,7 @@ class Search extends React.Component {
     return (
       <>
         <div data-testid="page-search">
-          <h1>Pesquisar</h1>
+          {/* <h1>Pesquisar</h1> */}
           <Header />
           {/* Questão 5 */}
           Pesquisa Artista/Banda
