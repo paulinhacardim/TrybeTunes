@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from '../Loading';
 // Questão 7
 class MusicCard extends React.Component {
@@ -9,6 +9,12 @@ class MusicCard extends React.Component {
     musicFavorite: false,
 
   });
+
+  async componentDidMount() {
+    this.setState({
+      musicFavorite: await this.favorite(),
+    });
+  }
 
   result = async ({ target: { checked } }) => {
     const { music } = this.props;
@@ -19,6 +25,7 @@ class MusicCard extends React.Component {
     if (checked) {
       await addSong(music);
     } else {
+      await
       removeSong(music);
     }
     this.setState({
@@ -26,6 +33,12 @@ class MusicCard extends React.Component {
       musicFavorite: checked,
 
     });
+  };
+
+  favorite = async () => {
+    const { music: { trackId } } = this.props;
+    const salvaMusica = await getFavoriteSongs();
+    return salvaMusica.map((music) => music.trackId).includes(trackId);
   };
 
   render() {
